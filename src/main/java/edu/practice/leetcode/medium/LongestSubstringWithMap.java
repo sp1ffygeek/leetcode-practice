@@ -38,6 +38,10 @@ import java.util.Map;
 //
 //    0 <= s.length <= 5 * 104
 //    s consists of English letters, digits, symbols and spaces.
+
+//Time Complexity: O(n + d) where n is length of the input string and d is number of characters in input string alphabet.
+// For example, if string consists of lowercase English characters then value of d is 26.
+//Auxiliary Space: O(d)
 public class LongestSubstringWithMap {
 
     public static void main(String[] args) {

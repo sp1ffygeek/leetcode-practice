@@ -1,9 +1,6 @@
 package edu.practice.leetcode.medium;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
 //Given a string s, find the length of the longest substring without repeating characters.
 //
 //
@@ -38,12 +35,17 @@ import java.util.Map;
 //
 //    0 <= s.length <= 5 * 104
 //    s consists of English letters, digits, symbols and spaces.
-public class LongestSubstring {
+
+//Method 1 (Simple : O(n3)): We can consider all substrings one by one and check for each substring whether it contains
+// all unique characters or not. There will be n*(n+1)/2 substrings. Whether a substring contains all unique characters
+// or not can be checked in linear time by scanning it from left to right and keeping a map of visited characters.
+// Time complexity of this solution would be O(n^3).
+
+public class LongestSubstringSimpleNCube {
     public static void main(String[] args) {
-        LongestSubstring substring = new LongestSubstring();
+        LongestSubstringSimpleNCube substring = new LongestSubstringSimpleNCube();
         int size = substring.lengthOfLongestSubstring("abcabcbb");
         System.out.println("Result: " + size);
-
     }
 
     public int lengthOfLongestSubstring(String s) {
@@ -51,7 +53,7 @@ public class LongestSubstring {
         for (int i = 0; i < s.length(); i++) {
             for (int j = i; j < s.length(); j++) {
                 String subStr = s.substring(i, j);
-                System.out.println("Index: " + i + " : " + j + ". SubString: " + subStr);
+                //System.out.println("Index: " + i + " : " + j + ". SubString: " + subStr);
                 if (areAllDistinct(subStr)) {
                     max = Math.max(max, subStr.length());
                 }
